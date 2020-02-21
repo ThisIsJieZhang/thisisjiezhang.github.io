@@ -1,0 +1,55 @@
+<html><head>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">-->
+</head>
+<body>
+
+<a href="http://www.baidu.com">href target empty</a>
+<br><br><br>
+<a href="http://www.baidu.com" target="_blank">href target _blank</a>
+<br><br><br>
+<a href="http://www.baidu.com" target="_self">href target _self</a>
+<br><br><br>
+<a href="http://www.baidu.com" target="_parent">href target _parent</a>
+<br><br><br>
+<a href="http://www.baidu.com" target="_top">href target _top</a>
+<br><br><br>
+<a href="http://www.baidu.com" target="targetFrame">href target framename(exist)</a>
+<br><br><br>
+<a href="http://www.baidu.com" target="targetFrame1">href target framename(not exist)</a>
+
+
+<br><br><br>
+<form id="test_form" action="" method="get" target=""></form><br><br>
+<button onclick="doSubmit('')">form target empty</button><br><br>
+<button onclick="doSubmit('_blank')">form target _blank</button><br><br>
+<button onclick="doSubmit('_self')">form target _self</button><br><br>
+<button onclick="doSubmit('_parent')">form target _parent</button><br><br>
+<button onclick="doSubmit('_top')">form target _top</button><br><br>
+<button onclick="doSubmit('targetFrame')">form target framename(exist)</button><br><br>
+<button onclick="doSubmit('targetFrame1')">form target framename(not exist)</button><br><br>
+
+<br><br><br>
+<button onclick="doOpenWindow('')">openWindow target empty</button><br><br>
+<button onclick="doOpenWindow('_blank')">openWindow target _blank</button><br><br>
+<button onclick="doOpenWindow('_self')">openWindow target _self</button><br><br>
+<button onclick="doOpenWindow('_parent')">openWindow target _parent</button><br><br>
+<button onclick="doOpenWindow('_top')">openWindow target _top</button><br><br>
+<button onclick="doOpenWindow('targetFrame')">openWindow target framename(exist)</button><br><br>
+<button onclick="doOpenWindow('targetFrame1')">openWindow target framename(not exist)</button><br><br>
+<iframe name="targetFrame"></iframe>
+<script>
+	function doSubmit(str){
+		var test_form = document.getElementById("test_form");
+		test_form.action= "http://www.baidu.com/s?wd="+str+test_form.method;
+		test_form.target=str;
+		test_form.submit();
+	}
+	function doOpenWindow(str){
+		var url = "http://www.baidu.com/s?wd"+str;
+		window.open(url,str);
+	}
+
+</script>
+<br>
+<iframe src="newwindow.htm" style="height:500px;"></iframe>
+</body></html>
